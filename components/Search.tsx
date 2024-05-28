@@ -103,7 +103,7 @@ const Search = () => {
         });
     }
   return (
-    <Container>
+    <Container className='min-h-screen'>
      <div className="">
      <Title className='font-Aifont'>Roadmap Generator</Title>
       <Input className='font-Aifont' type="text" onChange={(e)=>{
