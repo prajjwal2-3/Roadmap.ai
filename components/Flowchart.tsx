@@ -23,22 +23,22 @@ const Flowchart: React.FC<FlowchartProps> = ({map}) => {
  
   console.log(map)
   return (
-    <div className="font-Aifont   flex flex-col justify-around items-center p-5">
-     <p className="bg-violet-400 m-2 p-2 rounded-xl border border-black/20"> {map[0].title}</p>
+    <div className="font-Aifont   flex flex-col  items-center p-5">
+     <p className="bg-violet-400 m-2 p-2 text-xl rounded-xl border border-black/20"> {map[0].title}</p>
       {map[0].sections.map((sec: { items: any[]; title: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; },index: React.Key | null | undefined)=>
      <div key={index} className="w-full">
-       <div  className="flex flex-row  items-center  text-center">
+       <div  className="flex flex-row  items-center text-center">
       <div className="text-black w-5/12">
         
     {
        splitArray(sec.items, sec.items.length/2).leftSide.map((e, index) => {
-        return <p className="bg-[#FFE599] m-2 p-2 rounded-xl border border-black/20" key={index}>{e}</p>;
+        return <p className="bg-[#FFE599] m-2 text-xs sm:text-base p-2 shadow-3xl rounded-xl border border-black/20" key={index}>{e}</p>;
       })
  
     }
       </div>
       <div className="flex flex-col items-center w-2/12">
-      <p className=" mx-2 p-2 rounded-xl border border-black/20 bg-yellow-400">{sec.title}</p>
+      <p className=" mx-2 p-2  text-xs sm:text-base rounded-xl border border-black/20 bg-yellow-400">{sec.title}</p>
       
 <Image
 alt=""
@@ -48,7 +48,7 @@ src={mainjoiningline2}
       <div className="text-black w-5/12">
         
       { splitArray(sec.items, sec.items.length/2).rightSide.map((e, index) => {
-              return <p className="bg-[#FFE599] m-2 p-2 rounded-xl border border-black/20" key={index}>{e}</p>;
+              return <p className="bg-[#FFE599] text-xs sm:text-base shadow-3xl m-2 p-2 rounded-xl border border-black/20" key={index}>{e}</p>;
             })
          }
       </div>

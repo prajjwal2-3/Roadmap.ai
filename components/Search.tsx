@@ -34,7 +34,7 @@ const Title = styled.h1`
 const Input = styled.input`
   padding: 10px;
   font-size: 1.2em;
-  border-radius: 5px;
+  
   border: none;
   margin-bottom: 20px;
   width: 300px;
@@ -52,14 +52,14 @@ const Button = styled.button`
   padding: 10px 20px;
   font-size: 1.2em;
   color: white;
-  background-color: #6a11cb;
+  background-color: #2E67F5;
   border: none;
-  border-radius: 5px;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  
 
   &:hover {
-    background-color: #2575fc;
+    background-color: #A78BFA;
   }
 `;
 
@@ -77,6 +77,7 @@ const Search = () => {
     const [input,setinput]=useState('')
     const [output,setoutput]=useState<Roadmap[]>([])
     const [on, seton]=useState(false)
+    const [isloading,setisloading]=useState(false)
     let data = JSON.stringify({
         "topic":` ${input}`
       });
@@ -91,25 +92,32 @@ const Search = () => {
         data : data
       };
     function generatemap(){
+        if(input){
+            setisloading(true)
         axios.request(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
           setoutput(response.data )
           seton(true)
+          setisloading(false)
         })
         .catch((error) => {
           console.log(error);
           seton(false)
+          setisloading(false)
         });
+        }else{
+            alert('Input can not be empty')
+        }
     }
   return (
-    <Container className='min-h-screen'>
-     <div className="">
-     <Title className='font-Aifont'>Roadmap Generator</Title>
-      <Input className='font-Aifont' type="text" onChange={(e)=>{
+    <Container className='min-h-screen overflow-x-hidden'>
+     <div className="flex flex-col items-center">
+     <Title className='font-Aifont text-center'>Roadmap Generator</Title>
+      <Input className='font-Aifont md:rounded-l-lg rounded-lg' type="text" onChange={(e)=>{
         setinput(e.target.value)
       }} placeholder="Enter topic to get a roadmap" />
-      <Button className='font-Aifont' onClick={generatemap}>Generate roadmap</Button>
+      <Button className='font-Aifont md:rounded-r-lg rounded-lg w-fit' onClick={generatemap}>{isloading?'Generating':'Generate Roadmap'}</Button>
      </div>
      {on? <Flowchart map={output} />:''}
     </Container>
