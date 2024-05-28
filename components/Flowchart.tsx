@@ -26,8 +26,8 @@ const Flowchart: React.FC<FlowchartProps> = ({map}) => {
     <div className="font-Aifont   flex flex-col justify-around items-center p-5">
      <p className="bg-violet-400 m-2 p-2 rounded-xl border border-black/20"> {map[0].title}</p>
       {map[0].sections.map((sec: { items: any[]; title: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; },index: React.Key | null | undefined)=>
-     <div className="w-full">
-       <div key={index} className="flex flex-row  items-center  text-center">
+     <div key={index} className="w-full">
+       <div  className="flex flex-row  items-center  text-center">
       <div className="text-black w-5/12">
         
     {

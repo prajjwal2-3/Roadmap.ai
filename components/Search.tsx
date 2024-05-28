@@ -84,7 +84,7 @@ const Search = () => {
       let config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: 'http://localhost:3001/v1',
+        url: 'https://roadmap-be.vercel.app/v1',
         headers: { 
           'Content-Type': 'application/json'
         },
