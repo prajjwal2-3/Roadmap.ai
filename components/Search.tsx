@@ -117,7 +117,7 @@ const Search = () => {
       <Input className='font-Aifont md:rounded-l-lg rounded-lg' type="text" onChange={(e)=>{
         setinput(e.target.value)
       }} placeholder="Enter topic to get a roadmap" />
-      <Button className='font-Aifont md:rounded-r-lg rounded-lg w-fit' onClick={generatemap}>{isloading?'Generating':'Generate Roadmap'}</Button>
+      <Button className='font-Aifont md:rounded-r-lg rounded-lg w-fit' onClick={generatemap}>{isloading?'Generating....':'Generate Roadmap'}</Button>
      </div>
      {on? <Flowchart map={output} />:''}
     </Container>
